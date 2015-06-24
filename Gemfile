@@ -40,5 +40,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spring'
   gem 'pry'
-  gem 'rubocop'
+  gem 'parser', '2.2.2.0'
+  gem 'rubocop', '0.30.0'
 end

@@ -1,9 +1,0 @@
-/usr/local/rbenv/versions/2.2.0/bin/ruby -r ./siteconf20150624-1999-10h4swf.rb extconf.rb 
-creating Makefile
-
-make "DESTDIR=" clean
-
-make "DESTDIR="
-make: Nothing to be done for `all'.
-
-make "DESTDIR=" install
