@@ -1,0 +1,11 @@
+machine:
+  services:
+    - docker
+dependencies:
+  override:
+    - docker info
+    - docker build -t dynamodblocal circleci/.
+    - docker run -d -p 8000:8000 dynamodblocal
+test:
+  pre:
+    - docker build -t dynamodblocal circleci/.
