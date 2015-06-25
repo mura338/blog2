@@ -1,10 +1,14 @@
 machine:
   services:
     - docker
+
 dependencies:
+  cache_directories:
+    - "~/docker"
   override:
-    - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
     - docker build -t dynamodblocal circleci/.
+    - mkdir -p ~/docker; docker save dynamodblocal > ~/docker/image.tar
 test:
   pre:
     - bundle exec rubocop
