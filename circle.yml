@@ -5,7 +5,9 @@ dependencies:
   override:
     - docker info
     - docker build -t dynamodblocal circleci/.
-    - docker run -t -p 8000:8000 dynamodblocal
 test:
   pre:
-    - docker build -t dynamodblocal circleci/.
+    - bundle exec rubocop
+  override:
+    - docker run -d -p 8000:8000 -t dynamodblocal
+    - bundle exec rspec
