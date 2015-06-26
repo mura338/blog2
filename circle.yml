@@ -1,8 +1,6 @@
 machine:
   services:
     - docker
-    - postgresql
-
 dependencies:
   cache_directories:
     - "~/docker"
@@ -11,8 +9,9 @@ dependencies:
     - docker build -t dynamodblocal circleci/.
     - mkdir -p ~/docker; docker save dynamodblocal > ~/docker/image.tar
 test:
-  pre:
-    - bundle exec rubocop
+  # pre:
+  #   - bundle exec rubocop
   override:
+    - bundle exec rake
     - docker run -d -p 8000:8000 -t dynamodblocal
     - bundle exec rspec
