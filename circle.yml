@@ -15,4 +15,5 @@ test:
   #   - docker run -d -p 8000:8000 -t dynamodblocal
   override:
     # - bundle exec rubocop
+    - docker run -d -p 8000:8000 -t dynamodblocal
     - bundle exec rspec
