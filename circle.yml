@@ -1,15 +1,15 @@
 machine:
   timezone:
     Asia/Tokyo
-#   services:
-#     - docker
-# dependencies:
-#   cache_directories:
-#     - "~/docker"
-#   post:
-#     - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
-#     - docker build -t dynamodblocal circleci/.
-#     - mkdir -p ~/docker; docker save dynamodblocal > ~/docker/image.tar
+  services:
+    - docker
+dependencies:
+  cache_directories:
+    - "~/docker"
+  post:
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - docker build -t dynamodblocal circleci/.
+    - mkdir -p ~/docker; docker save dynamodblocal > ~/docker/image.tar
 test:
   # pre:
   #   - docker run -d -p 8000:8000 -t dynamodblocal
